@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.area {
+  @apply bg-slate-200 rounded-md container my-7 p-9 text-lg;
+}
+
+.area h1 {
+  @apply py-1 text-2xl font-semibold text-purple-600 text-center;
+}
+
+.btn {
+  @apply bg-indigo-600 text-white p-4 rounded-md text-xl my-4 hover:bg-indigo-800 hover:shadow-lg;
+}
+
+.inputDecor {
+  @apply block mt-2 mb-5 outline-none border border-indigo-600 rounded-md text-xl p-4 w-1/2 text-purple-600;
+}
+
+.errorInputDecor {
+  @apply block mt-2 mb-5 outline-none border border-red-600 rounded-md text-xl p-4 w-1/2 text-red-600 placeholder:text-red-600/80;
+}
+
+.pink {
+  @apply bg-red-200 text-xl my-4 text-white font-bold;
+}
+
+.blue {
+  @apply bg-indigo-300 text-xl text-white my-4 font-bold;
+}
+
+.result {
+  @apply font-bold text-red-400;
+}
+
+.signUp {
+  @apply bg-red-100 rounded-md w-2/3 p-8 mt-6;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xuan - Homework Js Day3</title>
+
+    <!-- FONT AWESOME  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- MY CSS  -->
+    <link rel="stylesheet" href="./css/output.css" />
+  </head>
+  <body>
+    <h1 class="my-6 text-4xl text-indigo-600 font-bold text-center">
+      Bài tập js buổi 3 - Xuân - BC77
+    </h1>
+
+    <!-- EVEN NUMBER, ODD NUMBER -->
+    <section class="area">
+      <div class="container">
+        <h1>Bài tập kiểm tra số nguyên chẵn, số lẻ</h1>
+        <label for="number" class="font-bold text-indigo-400"
+          >Nhập số nguyên</label
+        >
+        <input
+          type="number"
+          id="number"
+          placeholder="nhập vào 1 số nguyên bất kỳ"
+          class="inputDecor"
+        />
+        <button id="checkNumber" class="btn">Kiểm tra</button>
+
+        <p class="result">
+          Số bạn vừa nhập vào là:
+          <span id="checkNumberResult" class="font-bold text-green-600"></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- XÉT THƯỞNG NHÂN VIÊN  -->
+    <section class="area">
+      <div class="container">
+        <h1>Bài tập xét thưởng nhân viên</h1>
+        <label for="name" class="font-bold text-indigo-400"
+          >Tên nhân viên</label
+        >
+        <input
+          type="text"
+          id="name"
+          placeholder="nhập tên nhân viên"
+          class="inputDecor"
+        />
+        <label for="quantity" class="font-bold text-indigo-400"
+          >Số sản phẩm bán được</label
+        >
+        <input
+          type="number"
+          id="quantity"
+          placeholder="nhập số lượng sản phẩm bán được trong tháng"
+          class="inputDecor"
+        />
+        <label for="price" class="font-bold text-indigo-400"
+          >Giá sản phẩm (VND)</label
+        >
+        <input
+          type="number"
+          id="price"
+          placeholder="nhập giá của sản phẩm"
+          class="inputDecor"
+        />
+        <button id="calculateBonus" class="btn">Tính thưởng</button>
+        <p class="result">
+          Nhân viên:
+          <span id="nameResult" class="font-bold text-green-600"></span>
+        </p>
+        <p class="result">
+          Doanh số tháng:
+          <span id="revenue" class="font-bold text-green-600"></span>
+        </p>
+        <p class="result">
+          Thưởng doanh số:
+          <span id="bonusResult" class="font-bold text-green-600"></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- TÍNH CHIẾT KHẤU  -->
+    <section class="area">
+      <div class="container">
+        <h1>Bài tập tính chiết khấu</h1>
+        <label for="quantity" class="font-bold text-indigo-400">Hóa đơn</label>
+        <input
+          type="text"
+          id="bill"
+          placeholder="nhập vào giá trị đơn hàng"
+          class="inputDecor"
+        />
+        <button id="calculateDiscount" class="btn">Tính chiết khấu</button>
+        <p class="result">
+          Chiết khấu:
+          <span id="discountResult" class="font-bold text-green-600"></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- KIỂM TRA MẬT KHẨU MẠNH YẾU  -->
+    <section class="area">
+      <div class="container">
+        <h1>Bài tập kiểm tra mật khẩu mạnh yếu</h1>
+        <div class="signUp">
+          <h2 class="text-red-400 text-2xl text-center font-semibold">
+            Tạo tài khoản
+          </h2>
+          <label for="account" class="font-bold text-indigo-400"
+            >Tên đăng nhập</label
+          >
+          <input
+            type="text"
+            id="accountName"
+            placeholder="tạo tên đăng nhập"
+            class="inputDecor"
+          />
+          <label for="password" class="font-bold text-indigo-400"
+            >Mật khẩu</label
+          >
+          <div class="flex items-center">
+            <input
+              type="password"
+              id="password"
+              placeholder="tạo mật khẩu"
+              class="inputDecor"
+            />
+            <button
+              id="eye"
+              class="text-2xl mt-2 mb-5 -left-14 relative text-indigo-500"
+            >
+              <i class="fa fa-eye-slash"></i>
+            </button>
+          </div>
+          <button id="createAccount" class="btn">Đăng ký</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY JS  -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>
