@@ -45,37 +45,46 @@
     </section>
 
     <!-- XÉT THƯỞNG NHÂN VIÊN  -->
-    <section class="area">
+    <section id="reward" class="area">
       <div class="container">
         <h1>Bài tập xét thưởng nhân viên</h1>
-        <label for="name" class="font-bold text-indigo-400"
-          >Tên nhân viên</label
-        >
-        <input
-          type="text"
-          id="name"
-          placeholder="nhập tên nhân viên"
-          class="inputDecor"
-        />
-        <label for="quantity" class="font-bold text-indigo-400"
-          >Số sản phẩm bán được</label
-        >
-        <input
-          type="number"
-          id="quantity"
-          placeholder="nhập số lượng sản phẩm bán được trong tháng"
-          class="inputDecor"
-        />
-        <label for="price" class="font-bold text-indigo-400"
-          >Giá sản phẩm (VND)</label
-        >
-        <input
-          type="number"
-          id="price"
-          placeholder="nhập giá của sản phẩm"
-          class="inputDecor"
-        />
-        <button id="calculateBonus" class="btn">Tính thưởng</button>
+        <form action="#reward">
+          <label for="name" class="font-bold text-indigo-400"
+            >Tên nhân viên</label
+          >
+          <input
+            type="text"
+            id="name"
+            placeholder="nhập tên nhân viên"
+            class="inputDecor"
+            required
+          />
+          <label for="quantity" class="font-bold text-indigo-400"
+            >Số sản phẩm bán được</label
+          >
+          <input
+            type="number"
+            id="quantity"
+            min="0"
+            step="1"
+            placeholder="nhập số lượng sản phẩm bán được trong tháng"
+            class="inputDecor"
+            required
+          />
+          <label for="price" class="font-bold text-indigo-400"
+            >Giá sản phẩm (VND)</label
+          >
+          <input
+            type="number"
+            id="price"
+            min="0"
+            step="1"
+            placeholder="nhập giá của sản phẩm"
+            class="inputDecor"
+            required
+          />
+          <button id="calculateBonus" class="btn">Tính thưởng</button>
+        </form>
         <p class="result">
           Nhân viên:
           <span id="nameResult" class="font-bold text-green-600"></span>
@@ -92,17 +101,24 @@
     </section>
 
     <!-- TÍNH CHIẾT KHẤU  -->
-    <section class="area">
+    <section id="discount" class="area">
       <div class="container">
         <h1>Bài tập tính chiết khấu</h1>
-        <label for="quantity" class="font-bold text-indigo-400">Hóa đơn</label>
-        <input
-          type="text"
-          id="bill"
-          placeholder="nhập vào giá trị đơn hàng"
-          class="inputDecor"
-        />
-        <button id="calculateDiscount" class="btn">Tính chiết khấu</button>
+        <form action="#discount">
+          <label for="quantity" class="font-bold text-indigo-400"
+            >Hóa đơn (VND)</label
+          >
+          <input
+            type="number"
+            id="bill"
+            min="0"
+            step="1"
+            placeholder="nhập vào giá trị đơn hàng"
+            class="inputDecor"
+            required
+          />
+          <button id="calculateDiscount" class="btn">Tính chiết khấu</button>
+        </form>
         <p class="result">
           Chiết khấu:
           <span id="discountResult" class="font-bold text-green-600"></span>
@@ -114,7 +130,7 @@
     <section class="area">
       <div class="container">
         <h1>Bài tập kiểm tra mật khẩu mạnh yếu</h1>
-        <div class="signUp">
+        <form action="#signUp" id="signUp" class="signUp">
           <h2 class="text-red-400 text-2xl text-center font-semibold">
             Tạo tài khoản
           </h2>
@@ -126,6 +142,7 @@
             id="accountName"
             placeholder="tạo tên đăng nhập"
             class="inputDecor"
+            required
           />
           <label for="password" class="font-bold text-indigo-400"
             >Mật khẩu</label
@@ -136,16 +153,41 @@
               id="password"
               placeholder="tạo mật khẩu"
               class="inputDecor"
+              required
             />
             <button
+              type="button"
               id="eye"
               class="text-2xl mt-2 mb-5 -left-14 relative text-indigo-500"
             >
               <i class="fa fa-eye-slash"></i>
             </button>
           </div>
+          <div class="checkPassword text-sm text-gray-400 -mt-3 px-3">
+            <p id="length">
+              <i class="fa fa-times-circle mr-1"></i>Có độ dài tối thiểu 8 ký tự
+            </p>
+            <p id="containNumber">
+              <i class="fa fa-times-circle mr-1"></i>Có chứa ít nhất 1 chữ số
+              (1,2,3...)
+            </p>
+            <p id="lowercase">
+              <i class="fa fa-times-circle mr-1"></i>Có chứa ít nhất 1 chữ cái
+              viết thường (a,b,c...)
+            </p>
+            <p id="uppercase">
+              <i class="fa fa-times-circle mr-1"></i>Có chứa ít nhất 1 chữ cái
+              viết hoa (A,B,C,...)
+            </p>
+            <p id="special">
+              <i class="fa fa-times-circle mr-1"></i>Có chứa ít nhất 1 ký tự đặc
+              biệt (!, @, #, $, ...)
+            </p>
+          </div>
+
           <button id="createAccount" class="btn">Đăng ký</button>
-        </div>
+        </form>
+        <p id="passwordResult"></p>
       </div>
     </section>
 
