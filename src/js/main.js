@@ -51,28 +51,6 @@ btnCheckNumber.onclick = function (event) {
   showCorrectInput();
 };
 
-// ---- IDEA BAN ĐẦU----
-// let btnCheckNumber = document.querySelector("#checkNumber");
-
-// btnCheckNumber.onclick = function (event) {
-//   let inputValue = document.querySelector("#number").value;
-//   let checkNumberResult = document.querySelector("#checkNumberResult");
-//   if (inputValue == "") {
-//     checkNumberResult.innerHTML = "bạn chưa nhập nội dung";
-//     showErrorInput();
-//   } else if (Number(inputValue) % 2 != 0 && Number(inputValue) % 2 != 1) {
-//     checkNumberResult.innerHTML =
-//       "nội dung bạn vừa nhập không phải là số nguyên, vui lòng nhập lại";
-//     showErrorInput();
-//   } else if (Number(inputValue) % 2 == 0) {
-//     checkNumberResult.innerHTML = "số chẵn";
-//     showCorrectInput();
-//   } else {
-//     checkNumberResult.innerHTML = "số lẻ";
-//     showCorrectInput();
-//   }
-// };
-
 // ************************ XÉT THƯỞNG NHÂN VIÊN ***************************8
 
 let formReward = document.querySelector("#reward");
@@ -122,79 +100,36 @@ eyeBtn.onclick = function (event) {
   }
 };
 
-let passwordResult = document.querySelector("#passwordResult");
-
-function showWeakPassword() {
-  passwordResult.classList.remove("blue");
-  passwordResult.classList.add("pink");
-}
-
-function showStrongPassword() {
-  passwordResult.classList.remove("pink");
-  passwordResult.classList.add("blue");
+function testRegex(regexName, id) {
+  let iconPasswordCondition = id + " " + "i";
+  if (regexName.test(inputPassword.value)) {
+    document.querySelector(id).style.color = "green";
+    document.querySelector(iconPasswordCondition).className =
+      "fa fa-check-circle mr-1";
+    return true;
+  } else {
+    document.querySelector(id).style.color = "red";
+    document.querySelector(iconPasswordCondition).className =
+      "fa fa-times-circle mr-1";
+    return false;
+  }
 }
 
 let inputPassword = document.querySelector("#password");
 
 function checkPassword() {
-  let isStrongPassword = true;
-  //check number
-  let numberRegex = /(?=.*\d)/;
-  if (numberRegex.test(inputPassword.value)) {
-    document.querySelector("#containNumber").style.color = "green";
-    document.querySelector("#containNumber i").className =
-      "fa fa-check-circle mr-1";
-  } else {
-    document.querySelector("#containNumber").style.color = "red";
-    document.querySelector("#containNumber i").className =
-      "fa fa-times-circle mr-1";
-    isStrongPassword = false;
-  }
   //check length
-  let lengthOfPassword = document.querySelector("#password").value.length;
-  if (lengthOfPassword >= 8) {
-    document.querySelector("#length").style.color = "green";
-    document.querySelector("#length i").className = "fa fa-check-circle mr-1";
-  } else {
-    document.querySelector("#length").style.color = "red";
-    document.querySelector("#length i").className = "fa fa-times-circle mr-1";
-    isStrongPassword = false;
-  }
+  let length = testRegex(/^.{8,}$/, "#length");
+  //check number
+  let number = testRegex(/(?=.*\d)/, "#containNumber");
   //check lowercase
-  let lowercaseRegex = /[a-z]/;
-  if (lowercaseRegex.test(inputPassword.value)) {
-    document.querySelector("#lowercase").style.color = "green";
-    document.querySelector("#lowercase i").className =
-      "fa fa-check-circle mr-1";
-  } else {
-    document.querySelector("#lowercase").style.color = "red";
-    document.querySelector("#lowercase i").className =
-      "fa fa-times-circle mr-1";
-    isStrongPassword = false;
-  }
+  let lowercase = testRegex(/[a-z]/, "#lowercase");
   //check uppercase
-  let uppercaseRegex = /[A-Z]/;
-  if (uppercaseRegex.test(inputPassword.value)) {
-    document.querySelector("#uppercase").style.color = "green";
-    document.querySelector("#uppercase i").className =
-      "fa fa-check-circle mr-1";
-  } else {
-    document.querySelector("#uppercase").style.color = "red";
-    document.querySelector("#uppercase i").className =
-      "fa fa-times-circle mr-1";
-    isStrongPassword = false;
-  }
+  let uppercase = testRegex(/[A-Z]/, "#uppercase");
   // check special
-  let specialRegex = /[!@#~`\$%\^\&*\)\(+=._-]/g;
-  if (specialRegex.test(inputPassword.value)) {
-    document.querySelector("#special").style.color = "green";
-    document.querySelector("#special i").className = "fa fa-check-circle mr-1";
-  } else {
-    document.querySelector("#special").style.color = "red";
-    document.querySelector("#special i").className = "fa fa-times-circle mr-1";
-    isStrongPassword = false;
-  }
-  return isStrongPassword;
+  let special = testRegex(/[!@#~`\$%\^\&*\)\(+=._-]/g, "#special");
+
+  return length && number && lowercase && uppercase && special;
 }
 
 inputPassword.oninput = function () {
@@ -208,8 +143,18 @@ inputPassword.onkeyup = function (event) {
   }
 };
 
-let formSignUp = document.querySelector("#signUp");
+let passwordResult = document.querySelector("#passwordResult");
+function showWeakPassword() {
+  passwordResult.classList.remove("blue");
+  passwordResult.classList.add("pink");
+}
 
+function showStrongPassword() {
+  passwordResult.classList.remove("pink");
+  passwordResult.classList.add("blue");
+}
+
+let formSignUp = document.querySelector("#signUp");
 formSignUp.onsubmit = function (event) {
   if (checkPassword()) {
     passwordResult.innerHTML = `Bạn đã đăng ký thành công cho tài khoản:
